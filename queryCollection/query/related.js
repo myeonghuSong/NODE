@@ -12,9 +12,14 @@ module.exports = async (arr)=> {
     // })
     let store = [];
     for(let i=0; i<arr.length; i++){
-        await req(arr[i]).then((data) => {
-            store.push(data);
-        })
+        try{
+            await req(arr[i]).then((data) => {
+                store.push(data);
+            })
+        } catch (error) {
+            console.error(error);
+        }
+        
     }
     return store;
 };

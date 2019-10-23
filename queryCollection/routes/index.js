@@ -19,6 +19,9 @@ rp('http://www.naver.com', (error, response, body) => {
     related(arr).then(data => {
         result = data;
         console.log('result', result);
+    })
+    .catch(error => {
+        console.error(error);
     });
     
 });

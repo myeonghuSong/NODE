@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
 
-    rp('http://www.naver.com', (error, response, body) => {
+    rp('http://www.naver.com', async (error, response, body) => {
         const arr = [];
         const $ = cheerio.load(body);
         let collection = $('.ah_k').contents();
@@ -17,15 +17,16 @@ router.get('/', (req, res) => {
         }
         
         let result;
-        related(arr).then(data => {
-            result = data;
+        result = await related(arr);
+        // .then(data => {
+        //     result = data;
             console.log('result', result);
 
         res.send(result); 
-        })
-        .catch(error => {
-            console.error(error);
-        });
+        // })
+        // .catch(error => {
+        //     console.error(error);
+        // });
         
         
     });

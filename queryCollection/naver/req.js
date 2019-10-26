@@ -1,7 +1,7 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 
-module.exports = (qs) => new Promise(resolve => {
+module.exports = (qs) => { return new Promise(resolve => {
     const options = {
         uri: 'https://search.naver.com/search.naver',
         qs: {
@@ -27,4 +27,5 @@ module.exports = (qs) => new Promise(resolve => {
         // console.log(collection);
         resolve(collection);
     });
-});
+}) 
+};

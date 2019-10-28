@@ -56,6 +56,12 @@ const fs = require('fs');
             let title = data('.mTitle').children('.name').find('a').text();
             let contents = data('.subject').find('.mail_title').text();
             let content = contents.replace('메일 제목:', '');
+            // 방법2
+            // let test = data('.subject').find('.mail_title')
+            // .children('.blind')
+            // .remove();   
+            // let te2 = data('.subject').find('.mail_title').text();    //get the text of element
+            console.log(te2);
             content = content.trim();
             // console.log('$$$$$$$$$$', subject);
             if(title.length !== 0){

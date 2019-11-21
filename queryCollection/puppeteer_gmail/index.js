@@ -61,7 +61,6 @@ const fs = require('fs');
             // .children('.blind')
             // .remove();   
             // let te2 = data('.subject').find('.mail_title').text();    //get the text of element
-            console.log(te2);
             content = content.trim();
             // console.log('$$$$$$$$$$', subject);
             if(title.length !== 0){

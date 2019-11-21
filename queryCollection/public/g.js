@@ -1,8 +1,8 @@
-function carrot_btn (){
-    let name = document.getElementById('carrot_search').value;
+function g_btn (){
+    let name = document.getElementById('g_search').value;
     console.log('aaa',name);
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', `http://localhost:3000/carrotMarket?search=${name}`);
+    xhr.open('GET', `http://localhost:3000/gMarket?search=${name}`);
     xhr.setRequestHeader('Content-Type', "application/json");
     xhr.send(null);
 

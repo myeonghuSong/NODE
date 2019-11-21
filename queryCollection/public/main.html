@@ -4,14 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <button onclick="naver_btn();">naver button</button>
-    <br>
-        당근마켓 : <input type="text" id="carrot_search" name="carrot_search">
-        <input type="button" onclick="carrot_btn();" value="검색">
 </head>
 <body>
+    <button onclick="naver_btn();">naver button</button>
+    <div>
+        당근마켓 : <input type="text" id="carrot_search" name="carrot_search">
+        <input type="button" onclick="carrot_btn();" value="검색">
+    </div>
+    <div>
+        G 마켓 : <input type="text" id="g_search" name="g_search">
+        <input type="button" onclick="g_btn();" value="검색">
+    </div>
     <div class="result"></div>
 </body>
 <script src="main.js"></script>
 <script src="carrot.js"></script>
+<script src="g.js"></script>
 </html>

@@ -10,9 +10,11 @@ router.get('/', (req, res) => {
     console.log('name',name);
     // let uri = `https://www.daangn.com/search/${qs.escape(req.query.search)}`; 
     const options = {
-        uri: `https://www.daangn.com/search/${qs.escape(req.query.search)}/more/flea_market`,
+        uri: `http://browse.gmarket.co.kr/search/`,
         qs: {
-            page: 2,
+            keyword: name,
+            k: 32,
+            p: 1,
         },
         headers: {
             'User-Agent': 'Request-Promise',
@@ -26,22 +28,23 @@ router.get('/', (req, res) => {
     rp(options, (error, response, body) => {
         const arr = [];
         const $ = cheerio.load(body);
-        const imgs = $('.flea-market-article-link');
+        const lists = $('div#section__inner-content-body-container > div.section__module-wrap:nth-child(4)');
 
-        imgs.map((i, el) => {
-            const data = $(el);
-            arr.push({
-                img: data.children('.card-photo').find('img').attr('src'),               
-                title:data.children('.article-info').children('.article-title-content').children('.article-title').text(),
-                content:data.children('.article-info').children('.article-title-content').children('.article-content').text(),
-                region:data.children('.article-info').find('.article-region-name').text(),
-                price:data.children('.article-info').find('.article-price ').text(),
-            });
-            // console.log(data.children('.article-info').find('.article-price ').text());
+        // lists.map((i, el) => {
+        //     let data = $(el);
+        //     console.log(data.text());
+        // })
         
-
+        lists.contents().map((i, el)=> {
+            let data = $(el);
+            console.log(data.text());
+            console.log('**');
         });
-        console.log(arr);
+        // console.log(arr);
+
+
+
+
         // let kind = $('#flea-market-wrap').children('.article-kind').text();
         // let cards = $('#flea-market-wrap').contents().find('.article-region-name').text();
         // arr = cards.split('      ');
@@ -72,7 +75,7 @@ router.get('/', (req, res) => {
         // .catch(error => {
         //     console.error(error);
         // });
-        res.send(JSON.stringify(arr));
+        // res.send(lists);
     });
     
 })

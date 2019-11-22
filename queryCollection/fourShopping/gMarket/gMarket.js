@@ -37,7 +37,8 @@ router.get('/', (req, res) => {
         
         lists.contents().map((i, el)=> {
             let data = $(el);
-            console.log(data.text());
+            console.log(data.children('.box__item-container').children('.box__information').children('.box__information-major').children('.box__item-title').find('.text__item').text()); //상품 제목
+
             console.log('**');
         });
         // console.log(arr);
